@@ -1,6 +1,6 @@
 # 🖥️ Homelab Logs
 
-This repository documents my Hyper-V homelab experiments, issues, and solutions.  
+This repository documents my Hyper-V / AD homelab experiments, issues, and solutions.  
 Each lab entry is stored in `labs/` with detailed steps, configurations, and resolutions.  
 
 ## 📂 Structure
