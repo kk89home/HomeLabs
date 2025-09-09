@@ -3,11 +3,12 @@ homelab-logs/
 ├── README.md
 ├── Projects/
 │   ├── 2025-09-09_ADDS-FQDN-Issue.md
-│   └── (future lab logs here)
+│   ├── 2025-09-09_Ubuntu-SSSD-Fix.md
+│   ├── 2025-09-09_WSUS-Setup.md
+│   
 │
 ├── templates/
 │   └── TEMPLATE.md
 │
 └── docs/
     └── xxx
-
