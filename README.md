@@ -5,7 +5,7 @@ Each lab entry is stored in `Projects/` with detailed steps, configurations, and
 
 ## 📂 Structure
 - `logs/` → Lab logs by date/title  
-- `templates/` → Reusable lab log template  
+- `template/` → Reusable lab log template  
 - `docs/` → Reference documentation (environment, configs, etc.)
 
 ## 🔧 Current Setup
