@@ -1,10 +1,10 @@
 # 🖥️ Homelab Logs
 
 This repository documents my Hyper-V homelab experiments, issues, and solutions.  
-Each lab entry is stored in `labs/` with detailed steps, configurations, and resolutions.  
+Each lab entry is stored in `Projects/` with detailed steps, configurations, and resolutions.  
 
 ## 📂 Structure
-- `labs/` → Lab logs by date/title  
+- `logs/` → Lab logs by date/title  
 - `templates/` → Reusable lab log template  
 - `docs/` → Reference documentation (environment, configs, etc.)
 
