@@ -6,7 +6,7 @@ Each lab entry is stored in `[Projects/](https://github.com/users/kk89home/proje
 ## 📂 Structure
 - `logs/` → Lab logs by date/title  
 - `template/` → Reusable lab log template  
-- `docs/` → Reference documentation (environment, configs, etc.)
+- `projects/` → Reference documentation (environment, configs, etc.)
 
 ## 🔧 Current Setup
 - Hyper-V with 3 VMs:
