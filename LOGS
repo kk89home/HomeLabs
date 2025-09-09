@@ -1,13 +1,13 @@
 homelab-logs/
 │
 ├── README.md
-├── labs/
+├── Projects/
 │   ├── 2025-09-09_ADDS-FQDN-Issue.md
 │   └── (future lab logs here)
 │
 ├── templates/
-│   └── LAB_LOG_TEMPLATE.md
+│   └── TEMPLATE.md
 │
 └── docs/
-    └── environment-setup.md
+    └── xxx
 
