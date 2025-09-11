@@ -1,14 +1,55 @@
-homelab-logs/
-│
-├── README.md
-├── Projects/
-│   ├── 2025-09-09_ADDS-FQDN-Issue.md
-│   ├── 2025-09-09_Ubuntu-SSSD-Fix.md
-│   ├── 2025-09-09_WSUS-Setup.md
-│   
-│
-├── templates/
-│   └── TEMPLATE.md
-│
-└── docs/
-    └── xxx
+# Lab Log
+
+## 1. Lab Environment
+
+**Hyper-V Host:** Windows 11 x64 Professional  
+**Network Setup:** TestLab external switch  
+
+### Virtual Machines
+
+| VM | OS | IP / Network | Roles / Status |
+|----|----|--------------|----------------|
+| VM1Win11 | Windows 11 | 192.168.xx.xx | Pending domain join |
+| VM2Ubuntu | Ubuntu | 192.168.xx.xx | AD integration configured; Kerberos functional |
+| VM3WinSrv22 | Windows Server 2022 | 192.168.xx.xx | AD DS, AD CS, WSUS, DNS; Domain Controller |
+
+---
+
+## 2. Key Configurations
+
+- **AD DS (VM3):** Forest `Server1.local`, NetBIOS `Server1`  
+- **Ubuntu VM (VM2):** SSSD configured for AD authentication, home directories auto-created  
+- **VM Host Specs:** 15 GB disk, 4 GB RAM each VM  
+
+---
+
+## 3. Problems & Resolutions
+
+1. **AD DS FQDN Conflict**  
+   - **Cause:** AD CS installed before AD DS  
+   - **Resolution:** Removed AD CS, renamed server, created forest, reinstalled AD CS  
+   - **Result:** Domain successfully created  
+
+2. **Ubuntu AD Integration Issues**  
+   - **Cause:** NAT IP, SSSD misconfiguration, DNS/time issues  
+   - **Resolution:** Reconfigured network, fixed SSSD, verified DNS/time  
+   - **Result:** Ubuntu can see AD users; Kerberos functional  
+
+3. **Hyper-V Default Switch Misconfiguration**  
+   - **Cause:** Ubuntu VM on NAT switch, unable to reach AD subnet  
+   - **Resolution:** Moved VMs to Internal/External switch, assigned static IPs  
+   - **Result:** Ubuntu can communicate with AD DC  
+
+---
+
+## 4. Next Steps
+
+- Join VM1 (Windows 11) and VM2 (Ubuntu) to the domain  
+- Configure WSUS  
+- Verify DNS resolution across all VMs  
+- Document lab configuration and SSSD settings  
+
+---
+
+**Owner / Author:** kk89home  
+**Date:** 2025-09-11
