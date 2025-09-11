@@ -1,28 +1,55 @@
-# Lab Log – YYYY-MM-DD
+# Lab Log – [YYYY-MM-DD]
 
-## Lab Environment
-- **Hyper-V Host:** 
-- **Virtual Machines:**
-  - VM1:
-  - VM2:
-  - VM3:
+## 1. Lab Environment
 
----
+**Hyper-V Host:** [OS and version]  
+**Network Setup:** [Network type / switch]
 
-## Configurations
-- 
+### Virtual Machines
 
----
-
-## Problems Encountered
-
-### Problem X – <title>
-- **Issue:** 
-- **Cause:** 
-- **Resolution Steps:** 
-- **Result:** 
+| VM | OS | IP / Network | Roles / Status |
+|----|----|--------------|----------------|
+| VM1 | [OS] | [IP / Network] | [Roles / Status] |
+| VM2 | [OS] | [IP / Network] | [Roles / Status] |
+| VM3 | [OS] | [IP / Network] | [Roles / Status] |
 
 ---
 
-## ✅ Status / Next Steps
-- 
+## 2. Key Configurations
+
+- **AD DS (if any):** [Forest, Domain, NetBIOS, etc.]  
+- **Other VM Configurations:** [SSSD, Kerberos, Services, etc.]  
+- **VM Host Specs:** [Disk, RAM, CPU]  
+
+---
+
+## 3. Problems & Resolutions
+
+1. **Problem 1 – [Short Title]**  
+   - **Cause:** [Root cause]  
+   - **Resolution:** [Steps taken]  
+   - **Result:** [Outcome]  
+
+2. **Problem 2 – [Short Title]**  
+   - **Cause:** [Root cause]  
+   - **Resolution:** [Steps taken]  
+   - **Result:** [Outcome]  
+
+3. **Problem 3 – [Short Title]**  
+   - **Cause:** [Root cause]  
+   - **Resolution:** [Steps taken]  
+   - **Result:** [Outcome]  
+
+---
+
+## 4. Next Steps
+
+- [Task 1]  
+- [Task 2]  
+- [Task 3]  
+- [Task 4]  
+
+---
+
+**Owner / Author:** [Your Name]  
+**Date:** [YYYY-MM-DD]
