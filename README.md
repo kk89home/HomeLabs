@@ -1,7 +1,7 @@
 # 🖥️ Homelab Logs
 
 This repository documents my Hyper-V / AD homelab experiments, issues, and solutions.  
-Each lab entry is stored in `[Projects/](https://github.com/users/kk89home/projects/2)` with detailed steps, configurations, and resolutions.  
+Each lab entry is stored in `[Projects](https://github.com/users/kk89home/projects/2)` with detailed steps, configurations, and resolutions.  
 
 ## 📂 Structure
 - `logs/` → Lab logs by date/title  
