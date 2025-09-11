@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 OPR/120.0.0.0" version="28.2.0">
+  <diagram name="Page-1" id="_wwc3ghXKmjM8aIAb-aJ">
+    <mxGraphModel dx="1385" dy="755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="aEs6EUZ0uX-xvsHnyZQ--1" target="o0eFtwcBEKmSecPp8r-p-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aEs6EUZ0uX-xvsHnyZQ--1" value="&lt;b&gt;VM3 Windows 11 Home&lt;/b&gt;&lt;div&gt;Pending&lt;/div&gt;&lt;div&gt;192.168.xxx.xxx&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="80" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="o0eFtwcBEKmSecPp8r-p-1" target="o0eFtwcBEKmSecPp8r-p-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-1" value="&lt;b&gt;VM3 Windows Server 2022&lt;/b&gt;&lt;div&gt;Domain Controller&lt;/div&gt;&lt;div&gt;External vS&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;witch&lt;/span&gt;&lt;/div&gt;&lt;div&gt;AD DC, AD CS, WSUS, DNS&lt;/div&gt;&lt;div&gt;192.168.xxx.xxx&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="240" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="o0eFtwcBEKmSecPp8r-p-2" target="o0eFtwcBEKmSecPp8r-p-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-2" value="&lt;b&gt;VM2 Ubuntu&lt;/b&gt;&lt;div&gt;AD Auth&lt;/div&gt;&lt;div&gt;192.168.xxx.xxx&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="80" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-15" value="INTERNET&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="345" y="410" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-16" value="Internal vSwitch" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="215" y="128" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o0eFtwcBEKmSecPp8r-p-17" value="Internal vSwitch" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="455" y="128" width="110" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
