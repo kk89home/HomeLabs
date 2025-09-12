@@ -23,7 +23,7 @@
 * **DNS:** Internal and External configured on DC, forwarding external queries
 * **DHCP:** Scope `192.168.xxx.xxx`, DC DNS IP used, gateway as DNS for clients
 * **Additional Services on DC:** Print Services, Certificate Services (AD CS), Health Attestation, Remote Access (RRAS)
-* **VM Host Specs:** 15 GB disk, 4 GB RAM each VM
+* **VM Host Specs:** 60/15/15 GB disks, 4 GB RAM each VM
 
 ---
 
