@@ -2,54 +2,83 @@
 
 ## 1. Lab Environment
 
-**Hyper-V Host:** Windows 11 x64 Professional  
-**Network Setup:** TestLab external switch  
+**Hyper-V Host:** Windows 11 x64 Professional
+**Network Setup:** Internal Virtual Switch (192.168.xxx.xxx) and External Virtual Switch (192.168.xxx.xxx)
 
 ### Virtual Machines
 
-| VM | OS | IP / Network | Roles / Status |
-|----|----|--------------|----------------|
-| VM1Win11 | Windows 11 | 192.168.xx.xx | Pending domain join |
-| VM2Ubuntu | Ubuntu | 192.168.xx.xx | AD integration configured; Kerberos functional |
-| VM3WinSrv22 | Windows Server 2022 | 192.168.xx.xx | AD DS, AD CS, WSUS, DNS; Domain Controller |
+| VM          | OS                  | IP / Network    | Roles / Status                                                                                      |
+| ----------- | ------------------- | --------------- | --------------------------------------------------------------------------------------------------- |
+| VM1Win11    | Windows 11          | 192.168.xxx.xxx | Domain joined; DNS/DHCP configured; Group Policy applied                                            |
+| VM2Ubuntu   | Ubuntu              | 192.168.xxx.xxx | AD integration configured; Kerberos functional; DNS/DHCP verified                                   |
+| VM3WinSrv22 | Windows Server 2022 | 192.168.xxx.xxx | AD DS, AD CS, WSUS, DNS, DHCP, Print Services, Health Attestation, Remote Access; Domain Controller |
 
 ---
 
 ## 2. Key Configurations
 
-- **AD DS (VM3):** Forest `Server1.local`, NetBIOS `Server1`  
-- **Ubuntu VM (VM2):** SSSD configured for AD authentication, home directories auto-created  
-- **VM Host Specs:** 15 GB disk, 4 GB RAM each VM  
+* **AD DS (VM3):** Forest `Server1.local`, NetBIOS `Server1`
+* **Ubuntu VM (VM2):** SSSD configured for AD authentication, home directories auto-created
+* **Windows 11 VM (VM1):** NIC manually set to DC DNS IP for proper domain join and Group Policy processing
+* **DNS:** Internal and External configured on DC, forwarding external queries
+* **DHCP:** Scope `192.168.xxx.xxx`, DC DNS IP used, gateway as DNS for clients
+* **Additional Services on DC:** Print Services, Certificate Services (AD CS), Health Attestation, Remote Access (RRAS)
+* **VM Host Specs:** 15 GB disk, 4 GB RAM each VM
 
 ---
 
 ## 3. Problems & Resolutions
 
-1. **AD DS FQDN Conflict**  
-   - **Cause:** AD CS installed before AD DS  
-   - **Resolution:** Removed AD CS, renamed server, created forest, reinstalled AD CS  
-   - **Result:** Domain successfully created  
+1. **AD DS FQDN Conflict**
 
-2. **Ubuntu AD Integration Issues**  
-   - **Cause:** NAT IP, SSSD misconfiguration, DNS/time issues  
-   - **Resolution:** Reconfigured network, fixed SSSD, verified DNS/time  
-   - **Result:** Ubuntu can see AD users; Kerberos functional  
+   * **Cause:** AD CS installed before AD DS
+   * **Resolution:** Removed AD CS, renamed server, created forest, reinstalled AD CS
+   * **Result:** Domain successfully created
 
-3. **Hyper-V Default Switch Misconfiguration**  
-   - **Cause:** Ubuntu VM on NAT switch, unable to reach AD subnet  
-   - **Resolution:** Moved VMs to Internal/External switch, assigned static IPs  
-   - **Result:** Ubuntu can communicate with AD DC  
+2. **Ubuntu AD Integration Issues**
 
----
+   * **Cause:** NAT IP, SSSD misconfiguration, DNS/time issues
+   * **Resolution:** Reconfigured network, fixed SSSD, verified DNS/time
+   * **Result:** Ubuntu can see AD users; Kerberos functional
 
-## 4. Next Steps
+3. **Hyper-V Default Switch Misconfiguration**
 
-- Join VM1 (Windows 11) and VM2 (Ubuntu) to the domain  
-- Configure WSUS  
-- Verify DNS resolution across all VMs  
-- Document lab configuration and SSSD settings  
+   * **Cause:** Ubuntu VM on NAT switch, unable to reach AD subnet
+   * **Resolution:** Moved VMs to Internal/External switch, assigned static IPs
+   * **Result:** Ubuntu can communicate with AD DC
 
----
+4. **Windows 11 VM Domain Join Issues**
 
-**Owner / Author:** kk89home  
-**Date:** 2025-09-11
+   * **Cause:** Incorrect DNS assignment during setup
+   * **Resolution:** NIC manually set to DC DNS IP
+   * **Result:** Successful domain join, Group Policy applied successfully
+
+5. **DNS Binding Issues**
+
+   * **Cause:** DNS attempted to bind to wrong NIC addresses
+   * **Resolution:** Configured DNS to listen on all IPs (IPv4/IPv6) of DC
+   * **Result:** DNS operational for all internal and external clients
+
+6. **NPAS / NPS Service Stopped**
+
+   * **Cause:** NPS not required for lab setup
+   * **Resolution:** Left disabled
+   * **Result:** No effect on DHCP/DNS/AD functionality
+
+7. **AD CS Delta CRL Publishing Error**
+
+   * **Cause:** CA could not write Delta CRL to AD due to permission/LDAP path issues
+   * **Resolution:** Verified Cert Publishers group permissions, confirmed CDP path in CA extensions, forced CRL republish
+   * **Result:** Delta CRL successfully published
+
+8. **Ubuntu and Windows 11 Domain Verification**
+
+   * **Cause:** Need to ensure domain join and login functionality
+   * **Resolution:** Verified domain accounts, SSSD on Ubuntu, Group Policy on Win11
+   * **Result:** Both VMs can authenticate to domain, DNS resolution verified
+
+9. **Manual DNS Adjustment for Win11 NIC**
+
+   * **Cause:** Win11 was using internal switch IP instead of DC DNS
+   * **Resolution:** Set NIC properties manually to use DC DNS
+   * **Result:** Group Policy applied correctly; domain login functional
